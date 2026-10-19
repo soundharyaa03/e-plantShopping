@@ -58,7 +58,15 @@ button {
 .hero {
   padding: 70px 8%;
   text-align: center;
-  background: linear-gradient(135deg, #e1eedb, #f4f5e7);
+  background:
+    linear-gradient(rgba(20, 50, 25, 0.55), rgba(20, 50, 25, 0.55)),
+    url('/hero.png') center/cover no-repeat;
+  color: white;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .eyebrow,
