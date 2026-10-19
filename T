@@ -1,0 +1,8 @@
+GNU nano 6.2               src/App.jsx *                       
+                                                              
+                  
+                  
+
+                     [ Cutbuffer is empty ]
+^G Help      ^O Write Out ^W Where Is  ^K Cut       ^T Execute
+^X Exit      ^R Read File ^\ Replace   ^U Paste     ^J Justify
