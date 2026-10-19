@@ -1,242 +1,316 @@
-css
+/* Paradise Nursery - App.css */
+
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  color: #24382b;
-  background: #f7f8f2;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f8f2;
+  color: #243524;
 }
 
-button {
-  cursor: pointer;
-  font: inherit;
+/* Landing page background image */
+.background-image {
+  background-image: url('/hero.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  width: 100%;
 }
 
-.navbar {
+/* Alternative hero class */
+.hero {
+  position: relative;
+  min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 7%;
-  background: white;
-  border-bottom: 1px solid #e3eadf;
-}
-
-.brand {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  color: #28633e;
-  font-size: 22px;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.cart-button,
-.primary-button,
-.add-button,
-.secondary-button {
-  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 12px 18px;
+  text-align: center;
+  padding: 40px 20px;
+  background-image: url('/hero.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Overlay for readability */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Landing page content */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  color: white;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+/* Get Started button */
+.get-started,
+.get-started-btn {
+  display: inline-block;
+  padding: 14px 30px;
+  background-color: #2e7d32;
+  color: white;
   border: none;
   border-radius: 8px;
+  font-size: 1.1rem;
   font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.cart-button,
-.add-button,
-.primary-button {
-  color: white;
-  background: #28633e;
+.get-started:hover,
+.get-started-btn:hover {
+  background-color: #1b5e20;
+  transform: translateY(-2px);
 }
 
-.hero {
-  padding: 70px 8%;
-  text-align: center;
-  background:
-    linear-gradient(rgba(20, 50, 25, 0.55), rgba(20, 50, 25, 0.55)),
-    url('/hero.png') center/cover no-repeat;
-  color: white;
-  min-height: 350px;
+/* Navigation bar */
+.navbar {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
+  padding: 18px 5%;
+  background-color: #1b5e20;
+  color: white;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-.eyebrow,
-.category {
-  color: #4d8259;
-  font-size: 12px;
+.navbar h1,
+.navbar .logo {
+  font-size: 1.6rem;
   font-weight: bold;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
 }
 
-.hero h1 {
-  max-width: 750px;
-  margin: 15px auto;
-  font-size: clamp(32px, 5vw, 54px);
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin-left: 18px;
+  font-weight: 600;
 }
 
-.hero p {
-  max-width: 620px;
-  margin: 15px auto 24px;
-  line-height: 1.7;
+.navbar a:hover {
+  text-decoration: underline;
 }
 
-.content {
-  max-width: 1150px;
-  min-height: 400px;
-  margin: 45px auto;
-  padding: 0 24px;
+/* General page container */
+.container {
+  max-width: 1200px;
+  width: 92%;
+  margin: 0 auto;
+  padding: 35px 0;
 }
 
-.content h2 {
-  font-size: 30px;
+/* Page headings */
+h1,
+h2,
+h3 {
+  line-height: 1.3;
 }
 
-.subtitle {
-  color: #6b766d;
+h2 {
+  margin-bottom: 24px;
+  color: #245b2a;
 }
 
-.plant-grid {
+/* Plant product grid */
+.plant-list,
+.product-list {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 24px;
-  margin-top: 28px;
+  margin-top: 25px;
 }
 
-.plant-card {
-  overflow: hidden;
-  border: 1px solid #e4e9df;
-  border-radius: 14px;
-  background: white;
-  box-shadow: 0 5px 18px #1d38200b;
-}
-
-.plant-art {
-  display: grid;
-  min-height: 170px;
-  place-items: center;
-  background: #eaf1e4;
-  font-size: 75px;
-}
-
-.plant-info {
+/* Product cards */
+.plant-card,
+.product-card {
+  background-color: white;
+  border-radius: 12px;
   padding: 20px;
+  text-align: center;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.plant-info h3 {
-  margin: 10px 0;
-  font-size: 21px;
+.plant-card:hover,
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 
-.price {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.add-button {
+.plant-card img,
+.product-card img {
   width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.plant-card h3,
+.product-card h3 {
+  margin-bottom: 10px;
+  color: #245b2a;
+}
+
+.plant-card p,
+.product-card p {
+  margin-bottom: 12px;
+}
+
+/* General buttons */
+button {
+  font-family: inherit;
+}
+
+.btn,
+.add-to-cart,
+button.add-button {
+  padding: 10px 18px;
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover,
+.add-to-cart:hover,
+button.add-button:hover {
+  background-color: #1b5e20;
+}
+
+button:disabled {
+  background-color: #9e9e9e;
+  cursor: not-allowed;
+}
+
+/* Shopping cart */
+.cart-container {
+  max-width: 1000px;
+  width: 92%;
+  margin: 30px auto;
 }
 
 .cart-item {
   display: flex;
-  align-items: center;
-  gap: 18px;
-  margin: 16px 0;
-  padding: 18px;
-  border: 1px solid #e4e9df;
-  border-radius: 12px;
-  background: white;
-}
-
-.plant-emoji {
-  font-size: 38px;
-}
-
-.cart-details {
-  flex: 1;
-}
-
-.cart-details h3,
-.cart-details p {
-  margin: 5px 0;
-}
-
-.quantity {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.quantity button,
-.remove {
-  display: grid;
-  padding: 8px;
-  place-items: center;
-  border: 1px solid #dce5d9;
-  border-radius: 6px;
-  background: white;
-}
-
-.remove {
-  color: #b43b3b;
-}
-
-.total {
-  display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin: 25px 0;
-}
-
-.empty {
-  padding: 24px 0;
-}
-
-.secondary-button {
-  color: #28633e;
-  border: 1px solid #28633e;
-  background: white;
-}
-
-footer {
-  display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 25px;
-  color: #526d57;
-  background: #eaf1e4;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid #ddd;
 }
 
-@media (max-width: 750px) {
-  .plant-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+.cart-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cart-item button {
+  margin: 5px;
+}
+
+.cart-total {
+  text-align: right;
+  margin-top: 25px;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+/* About Us section */
+.about-us {
+  max-width: 900px;
+  margin: 35px auto;
+  padding: 30px;
+  line-height: 1.8;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.about-us h2 {
+  margin-bottom: 16px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 22px;
+  background-color: #1b5e20;
+  color: white;
+  margin-top: 40px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.4rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .navbar a {
+    margin: 8px;
   }
 
   .cart-item {
-    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cart-total {
+    text-align: center;
   }
 }
 
 @media (max-width: 480px) {
-  .plant-grid {
+  .hero-content h1 {
+    font-size: 1.9rem;
+  }
+
+  .get-started,
+  .get-started-btn {
+    padding: 12px 22px;
+    font-size: 1rem;
+  }
+
+  .plant-list,
+  .product-list {
     grid-template-columns: 1fr;
-  }
-
-  .navbar {
-    padding: 15px;
-  }
-
-  .brand {
-    font-size: 18px;
   }
 }
